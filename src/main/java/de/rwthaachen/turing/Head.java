@@ -51,9 +51,8 @@ public class Head {
 		while (head != null) {
 			if (head == this) {
 				sb.append("[").append(state.number()).append("]");
-			} else {
-				sb.append(head.character);
 			}
+			sb.append(head.character);
 			head = head.right;
 		}
 		sb.append(BLANK).append("...");
