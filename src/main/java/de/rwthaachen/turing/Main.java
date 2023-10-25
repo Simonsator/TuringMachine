@@ -19,6 +19,9 @@ public class Main {
 		int finalState = Integer.parseInt(lines.get(4));
 		Map<StateInputTuple, StateOutputDirectionTuple> transitionFunction = new HashMap<>();
 		for (int i = 5; i < lines.size(); i++) {
+			if (lines.get(i).isEmpty() || lines.get(i).startsWith("#")) {
+				continue;
+			}
 			String[] parts = lines.get(i).split(" ");
 			transitionFunction.put(new StateInputTuple(new State(Integer.parseInt(parts[0])), parts[1].charAt(0)),
 					new StateOutputDirectionTuple(new State(Integer.parseInt(parts[2])), parts[3].charAt(0), directionFromString(parts[4])));
